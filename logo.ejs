@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logo Slider</title>
+    <title>Global Presence - Local Offices Slider</title>
 
     <!-- Swiper CSS -->
     <link
@@ -15,62 +15,107 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: #f4f4f4;
             margin: 0;
             padding: 0;
+            background-color: #f4f4f4;
         }
 
-        .swiper {
-            width: 100%;
-            padding: 30px 0;
-            background-color: #fff;
-        }
-
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0.7;
-            filter: grayscale(100%);
-            transition: all 0.3s ease;
-        }
-
-        .swiper-slide:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-        }
-
-        .swiper-slide img {
-            max-height: 60px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .swiper-wrapper {
-            display: flex;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
         }
 
         h2 {
             text-align: center;
-            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        /* Swiper container */
+        .swiper {
+            width: 100%;
+            height: 400px;
+        }
+
+        /* Swiper slide */
+        .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Office images */
+        .office-image {
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .office-name {
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .office-location {
+            font-size: 16px;
+            color: #777;
         }
     </style>
 </head>
 
 <body>
 
-    <h2>Our Trusted Partners</h2>
+    <div class="container">
+        <h2>Our Global Presence</h2>
 
-    <!-- Swiper -->
-    <div class="swiper partners-logos">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Netflix_icon.svg" alt="Netflix"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Spotify_icon.svg" alt="Spotify"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Apple_logo_black.svg" alt="Apple"></div>
-            <div class="swiper-slide"><img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Twitter_logo_2021.svg" alt="Twitter"></div>
+        <!-- Swiper -->
+        <div class="swiper global-presence-ul">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <img class="office-image" src="https://via.placeholder.com/300x200?text=Office+1" alt="Office 1">
+                    <div class="office-name">Office 1</div>
+                    <div class="office-location">New York, USA</div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <img class="office-image" src="https://via.placeholder.com/300x200?text=Office+2" alt="Office 2">
+                    <div class="office-name">Office 2</div>
+                    <div class="office-location">London, UK</div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <img class="office-image" src="https://via.placeholder.com/300x200?text=Office+3" alt="Office 3">
+                    <div class="office-name">Office 3</div>
+                    <div class="office-location">Berlin, Germany</div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="swiper-slide">
+                    <img class="office-image" src="https://via.placeholder.com/300x200?text=Office+4" alt="Office 4">
+                    <div class="office-name">Office 4</div>
+                    <div class="office-location">Tokyo, Japan</div>
+                </div>
+                <!-- Slide 5 -->
+                <div class="swiper-slide">
+                    <img class="office-image" src="https://via.placeholder.com/300x200?text=Office+5" alt="Office 5">
+                    <div class="office-name">Office 5</div>
+                    <div class="office-location">Sydney, Australia</div>
+                </div>
+            </div>
+
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </div>
 
@@ -80,26 +125,31 @@
     <!-- Swiper Config -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            new Swiper('.partners-logos', {
+            const swiper = new Swiper('.global-presence-ul', {
                 loop: true,
-                slidesPerView: 6,
-                spaceBetween: 30,
+                slidesPerView: 1,
+                spaceBetween: 20,
                 autoplay: {
-                    delay: 2000,
+                    delay: 3000,
                     disableOnInteraction: false,
                 },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
                 breakpoints: {
-                    320: {
+                    640: {
                         slidesPerView: 2,
-                        spaceBetween: 10,
                     },
                     768: {
-                        slidesPerView: 4,
-                        spaceBetween: 20,
+                        slidesPerView: 3,
                     },
                     1024: {
-                        slidesPerView: 6,
-                        spaceBetween: 30,
+                        slidesPerView: 4,
                     },
                 },
             });
